@@ -10,5 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
+mount_encfs() {
+  NAME=$(basename $1)
+  encfs $1 /Volumes/$NAME -o volname=$NAME -o local -o allow_root
+  sleep 2
+  sudo mdutil -i on /Volumes/$NAME
+}
