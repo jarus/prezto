@@ -16,3 +16,5 @@ mount_encfs() {
   sleep 2
   sudo mdutil -i on /Volumes/$NAME
 }
+
+alias clean-pyc="find . -name '*.pyc' -delete"
